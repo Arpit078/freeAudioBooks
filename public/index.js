@@ -8,7 +8,7 @@ button.addEventListener('click', () => {
   // Retrieve the input value
   const bookName = input.value.replace('https://goldenaudiobook.com/', '').replace('/', '');
   console.log("pressed")
-  window.location.href = `http://127.0.0.1:5000/q=${bookName}`;
+  window.location.href = `https://freeaudiobooks.onrender.com/q=${bookName}`;
   heading.innerText = "Wait while the book is downloaded. Refresh to download new book."
   button.style.display = "none"
   input.style.display = "none"
