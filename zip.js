@@ -20,3 +20,4 @@ export function zip(sourceFolderPath, destFilePath) {
     archive.finalize();
   });
 }
+// zip("./book","iron_john.zip")

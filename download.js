@@ -1,4 +1,4 @@
-import { fetch } from "./data.js";
+import { fetch, fetchFullLengthAudiobooksWebsite } from "./data.js";
 import https from 'https';
 import fs from 'fs';
 
@@ -46,6 +46,27 @@ export function serve(url) {
       }
     });
   }
+export function serveFullLengthAudioBooks(url) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const res = await fetchFullLengthAudiobooksWebsite(url);
+        const data = JSON.parse(res);
+  
+        console.log(data.number);
+  
+        for (let i = 1; i <= parseInt(data.number); i++) {
+          const num = i > 9 ? `${i}` : `0${i}`;
+          const parsedUrl = data.audio_book_url.slice(0, -6) + num + `.mp3`;
+          console.log(parsedUrl);
+          await download(parsedUrl, `./book/${i}.mp3`);
+        }
+  
+        resolve(); // Resolve the promise when the operation is complete
+      } catch (error) {
+        reject(error); // Reject the promise if an error occurs
+      }
+    });
+  }
   
 
-// await serve("https://goldenaudiobook.com/danielle-steel-property-of-a-noblewoman-audiobook/")
+// await serveFullLengthAudioBooks("https://fulllengthaudiobook.com/robert-bly-iron-john-audiobook/")

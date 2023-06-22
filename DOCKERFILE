@@ -1,0 +1,6 @@
+FROM node:18.13.0-alpine
+WORKDIR /
+ADD . ./
+RUN npm install
+EXPOSE 5000
+CMD [ "node", "server.js"]

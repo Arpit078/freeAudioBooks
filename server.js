@@ -82,31 +82,3 @@ app.listen(PORT,()=>{
 
 
 
-
-
-// try {
-//     const res = await fetch(url)
-//     const data = await JSON.parse(res)
-//   const zipFileName = data.title.replace(/ /g, '_'); + `.zip`;
-//   const zipFilePath = `./zips/${zipFileName}`;
-//   await zip(`./extracted/${req.params.user}`, zipFilePath);
-
-//   const options = {
-//     headers: {
-//       'Content-Type': 'application/octet-stream',
-//     },
-//   };
-
-//   res.download(zipFilePath, zipFileName, options, (err) => {
-//     if (err) {
-//       console.error(err);
-//     } else {
-//       console.log(`File ${zipFilePath} sent successfully.`);
-//     }
-//     // Delete the ZIP file after sending it
-//     fs.unlinkSync(zipFilePath);
-//   });
-// } catch (err) {
-//   console.error(err);
-//   res.sendStatus(500);
-// }
